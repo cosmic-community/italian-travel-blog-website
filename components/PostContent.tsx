@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Post } from '@/types'
+import PostContentRenderer from './PostContentRenderer'
 
 interface PostContentProps {
   post: Post
@@ -77,11 +78,8 @@ export default function PostContent({ post }: PostContentProps) {
         )}
       </header>
 
-      {/* Content */}
-      <div 
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      {/* Content - Now using client component */}
+      <PostContentRenderer content={content} />
     </article>
   )
 }
